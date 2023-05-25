@@ -41,6 +41,7 @@ let theWheel = new Winwheel({
 		'type'     : 'spinToStop',
 		'duration' : 5,     // Duration in seconds.
 		'spins'    : 8,     // Number of complete spins.
+		'callbackFinished' : alertPrize,
 	}
 });
 
@@ -56,4 +57,9 @@ function startSpin() {
 
 	// Start animation.
 	theWheel.startAnimation();
+}
+
+function alertPrize(indicatedSegment) {
+	// Do basic alert of the segment text. You would probably want to do something more interesting with this information.
+	alert("You have won " + indicatedSegment.text);
 }

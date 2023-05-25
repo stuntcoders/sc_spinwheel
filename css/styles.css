@@ -161,3 +161,51 @@ body {
 	max-width: 700px;
 	width: 100%;
 }
+
+.content .section .headline {
+	font-size: 1.4375rem;
+	font-family: "Archivo", "Helvetica Neue", Arial, sans-serif;
+	font-weight: 700;
+	line-height: 1.2;
+	color: #fff;
+	text-transform: uppercase;
+	margin: 0 0 .9375rem 0;
+}
+
+.content .section .headline__main {
+	font-size: 90px;
+	font-family: "Archivo", "Helvetica Neue", Arial, sans-serif;
+	font-weight: 900;
+	line-height: 0.9;
+	color: #ffeab3;
+	text-transform: uppercase;
+	margin: 0 0 1.25rem 0;
+}
+
+.content .section .desc {
+	margin-bottom: 2.5rem;
+}
+
+.content .section .desc p {
+	font-size: 1.0625rem;
+	color: #fff;
+	line-height: 1.5;
+}
+
+.content .section .start-game-action button {
+	font-size: 1rem;
+	text-transform: uppercase;
+	padding: 1rem 2.1875rem;
+	background-color: transparent;
+	color: #f76a71;
+	border: 2px solid #f76a71;
+	border-radius: 45px;
+	cursor: pointer;
+	transition: all .25s ease-out;
+}
+
+.content .section .start-game-action button:hover {
+	color: #fff;
+	background-color: #f76a71;
+	transform: scale(1.1);
+}

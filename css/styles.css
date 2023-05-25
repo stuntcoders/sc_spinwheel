@@ -132,3 +132,32 @@ body {
 	overflow-y: scroll;
 	word-wrap: break-word;
 }
+
+.content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	padding: 2rem;
+}
+
+.content .inner-wrapper {
+	min-height: calc(100vh - 150px);
+	position: relative;
+	max-width: 1140px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.content .inner-wrapper section {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+}
+
+.content .inner-wrapper section .section-inner-wrapper {
+	max-width: 700px;
+	width: 100%;
+}

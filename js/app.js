@@ -1,24 +1,17 @@
 $(document).ready(function() {
-	// Get the button element and sections
 	const animateButton = $('.next-section');
 	const sections = $('.section');
 
-	// Add a click event listener to the button
 	animateButton.on('click', function() {
 		let activeSection = sections.filter('.active');
 		let nextSection = activeSection.next();
 
-		// Add the fade-out class to the active section
 		activeSection.addClass('fade-out');
 
-		// Wait for the fade-out animation to complete
 		setTimeout(function() {
-		// Remove active class from the current section
-		activeSection.removeClass('active fade-out');
-
-		// Add active class to the next section
-		nextSection.addClass('active slide-up');
-		}, 500); // Adjust the delay to match the CSS transition duration
+			activeSection.removeClass('active fade-out');
+			nextSection.addClass('active slide-up');
+		}, 500);
 	});
 });
 

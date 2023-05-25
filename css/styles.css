@@ -226,3 +226,14 @@ section.slide-up {
 	background-color: #f76a71;
 	transform: scale(1.1);
 }
+
+.content .section .start-game-action.spin button {
+	margin-top: 30px;
+}
+
+.wheel-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}

@@ -1,65 +1,101 @@
-$(document).ready(function() {
-	const animateButton = $('.next-section');
-	const sections = $('.section');
+const animateButton = document.querySelector('.next-section');
+const sections = document.querySelectorAll('.section');
+const actionButton = document.querySelector('.spin-the-wheel');
 
-	animateButton.on('click', function() {
-		let activeSection = sections.filter('.active');
-		let nextSection = activeSection.next();
+if (localStorage.getItem('wheelDisabled')) {
+	actionButton.disabled = true;
+	actionButton.setAttribute('disabled', true);
+}
 
-		activeSection.addClass('fade-out');
-
-		setTimeout(function() {
-			activeSection.removeClass('active fade-out');
-			nextSection.addClass('active slide-up');
-		}, 500);
-	});
+animateButton.addEventListener('click', function() {
+	animateSections();
 });
+
+function animateSections() {
+	let activeSection = document.querySelector('.section.active');
+	let nextSection = activeSection.nextElementSibling;
+
+	activeSection.classList.add('fade-out');
+
+	setTimeout(function() {
+		activeSection.classList.remove('active', 'fade-out');
+		nextSection.classList.add('active', 'slide-up');
+	}, 500);
+}
+
+
+const prizes = [
+	{ rewardData: '', fillStyle: '#54265e', textFillStyle: '#ffffff', text: 'SPIN AGAIN' },
+	{ rewardData: 'Reward description', fillStyle: '#ffffff', textFillStyle: '#54265e', text: 'PRIZE BOX' },
+	{ rewardData: '', fillStyle: '#54265e', textFillStyle: '#ffffff', text: 'NO LUCK' },
+	{ rewardData: 'Reward description', fillStyle: '#ffffff', textFillStyle: '#54265e', text: 'PRIZE BOX' },
+	{ rewardData: '', fillStyle: '#54265e', textFillStyle: '#ffffff', text: 'SPIN AGAIN' },
+	{ rewardData: 'Reward description', fillStyle: '#ffffff', textFillStyle: '#54265e', text: 'PRIZE BOX' },
+	{ rewardData: '', fillStyle: '#54265e', textFillStyle: '#ffffff', text: 'NO LUCK' },
+	{ rewardData: 'Reward description', fillStyle: '#ffffff', textFillStyle: '#54265e', text: 'PRIZE BOX' },
+];
 
 // Create winwheel as per normal.
 let theWheel = new Winwheel({
-	'numSegments'  : 8,     // Specify number of segments.
-	'textFontSize' : 28,    // Set font size as desired.
-	'responsive'   : true,  // This wheel is responsive!
-	'segments'     :        // Define segments including colour and text.
-	[
-		{'fillStyle' : '#eae56f', 'text' : 'Prize 1'},
-		{'fillStyle' : '#89f26e', 'text' : 'Prize 2'},
-		{'fillStyle' : '#7de6ef', 'text' : 'Prize 3'},
-		{'fillStyle' : '#e7706f', 'text' : 'Prize 4'},
-		{'fillStyle' : '#eae56f', 'text' : 'Prize 5'},
-		{'fillStyle' : '#89f26e', 'text' : 'Prize 6'},
-		{'fillStyle' : '#7de6ef', 'text' : 'Prize 7'},
-		{'fillStyle' : '#e7706f', 'text' : 'Prize 8'}
-	],
-	'pins' :
-	{
-		'outerRadius': 6,
-		'responsive' : true, // This must be set to true if pin size is to be responsive, if not just location is.
-	},
-	'animation' :           // Specify the animation to use.
+	'numSegments'  : prizes.length,
+	'textFontSize' : 22,
+	'textFontFamily' : 'Archivo',
+	'textFillStyle'  : 'white',
+	'textFontWeight' : 600,
+	'responsive'   : true,
+	'segments': prizes.map(prize => ({
+		text: prize.text,
+		fillStyle: prize.fillStyle,
+		textFillStyle: prize.textFillStyle,
+		rewardData: prize.rewardData,
+	})),
+	'animation' :
 	{
 		'type'     : 'spinToStop',
-		'duration' : 5,     // Duration in seconds.
-		'spins'    : 8,     // Number of complete spins.
+		'duration' : 5,
+		'spins'    : 8,
 		'callbackFinished' : alertPrize,
 	}
 });
 
-// -----------------------------------------------------------------
-// Called by the onClick of the canvas, starts the spinning.
 function startSpin() {
 	// Stop any current animation.
 	theWheel.stopAnimation(false);
-
-	// Reset the rotation angle to less than or equal to 360 so spinning again
-	// works as expected. Setting to modulus (%) 360 keeps the current position.
 	theWheel.rotationAngle = theWheel.rotationAngle % 360;
 
 	// Start animation.
 	theWheel.startAnimation();
 }
 
+function disableSpinButton() {
+	actionButton.disabled = true;
+	actionButton.setAttribute('disabled', true);
+	localStorage.setItem('wheelDisabled', true);
+}
+
 function alertPrize(indicatedSegment) {
-	// Do basic alert of the segment text. You would probably want to do something more interesting with this information.
-	alert("You have won " + indicatedSegment.text);
+	const selectedPrize = indicatedSegment.text;
+
+	if ( selectedPrize !== 'SPIN AGAIN' && selectedPrize !== 'NO LUCK' ) {
+		const prizeInfoDiv = document.querySelector('.prize-info');
+		prizeInfoDiv.innerHTML = `You have won ${indicatedSegment.rewardData}!`;
+		animateSections();
+		disableSpinButton();
+	} else if ( selectedPrize === 'SPIN AGAIN' ) {
+		resetWheel();
+	} else if ( selectedPrize === 'NO LUCK') {
+		disableSpinButton();
+	}
+}
+
+function resetWheel() {
+	const selectedPrize = theWheel.getIndicatedSegment();
+
+	if (selectedPrize.text === 'Prize 2') {
+		theWheel.stopAnimation(false);
+		theWheel.rotationAngle = 0;
+		theWheel.draw();
+
+		wheelSpinning = false;
+	}
 }

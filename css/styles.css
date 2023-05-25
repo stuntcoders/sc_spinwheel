@@ -150,10 +150,27 @@ body {
 	margin: 0 auto;
 }
 
-.content .inner-wrapper section {
+.section {
 	position: absolute;
 	top: 50%;
 	left: 0;
+	transform: translateY(0);
+	opacity: 0;
+	transition: opacity 0.5s ease, transform 0.5s ease;
+	z-index: 1;
+}
+
+section.active {
+	opacity: 1;
+	transform: translateY(-50%);
+	z-index: 2;
+}
+
+section.fade-out {
+	opacity: 0;
+}
+
+section.slide-up {
 	transform: translateY(-50%);
 }
 

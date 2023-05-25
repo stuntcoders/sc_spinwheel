@@ -13,7 +13,7 @@
 <body>
 	<main class="content">
 		<div class="inner-wrapper">
-			<section class="welcome section">
+			<section class="welcome section active">
 				<div class="section-inner-wrapper">
 					<h2 class="headline">Game library example</h2>
 					<h2 class="headline__main">
@@ -27,13 +27,17 @@
 						</p>
 					</div>
 					<div class="start-game-action">
-						<button type="button" class="start-game">Start Game</button>
+						<button type="button" class="start-game next-section">Start Game</button>
 					</div>
 				</div>
 			</section>
 			<section class="spinwheel section">
 				<div class="section-inner-wrapper">
-
+					<div class="wheel-container">
+						<canvas id="canvas" width="500" height="500" style="background-color: transparent;" data-responsiveMinWidth="180" data-responsiveScaleHeight="true" onClick="startSpin();">
+							<p style="color: white" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
+						</canvas>
+					</div>
 				</div>
 			</section>
 			<section class="get-your-prize section">
@@ -43,6 +47,12 @@
 			</section>
 		</div>
 	</main>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="js/Winwheel.min.js"></script>
+	<script
+	src="https://code.jquery.com/jquery-3.7.0.min.js"
+	integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+	crossorigin="anonymous"></script>
 	<script src="js/app.js"></script>
 </body>
 </html>

@@ -34,9 +34,11 @@
 			<section class="spinwheel section">
 				<div class="section-inner-wrapper">
 					<div class="wheel-container">
-						<canvas id="canvas" width="500" height="500" style="background-color: transparent;" data-responsiveMinWidth="180" data-responsiveScaleHeight="true">
-							<p style="color: white" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
-						</canvas>
+						<div class="canvas-wrapper">
+							<canvas id="canvas" width="500" height="500" style="background-color: transparent;" data-responsiveMinWidth="180" data-responsiveScaleHeight="true">
+								<p style="color: white" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
+							</canvas>
+						</div>
 						<div class="start-game-action spin">
 							<button type="button" class="start-game spin-the-wheel" onClick="startSpin();">Spin the wheel</button>
 						</div>

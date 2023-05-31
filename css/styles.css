@@ -244,6 +244,7 @@ section.slide-up {
 	justify-content: center;
 	padding-top: 50px;
 	position: relative;
+	max-width: 500px;
 }
 
 .wheel-container::after {

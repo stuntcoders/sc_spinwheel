@@ -25,20 +25,24 @@ function animateSections() {
 
 
 const prizes = [
-	{ rewardData: '', fillStyle: '#54265e', textFillStyle: '#ffffff', text: 'SPIN AGAIN' },
-	{ rewardData: 'Reward description', fillStyle: '#ffffff', textFillStyle: '#54265e', text: 'PRIZE BOX' },
-	{ rewardData: '', fillStyle: '#54265e', textFillStyle: '#ffffff', text: 'NO LUCK' },
-	{ rewardData: 'Reward description', fillStyle: '#ffffff', textFillStyle: '#54265e', text: 'PRIZE BOX' },
-	{ rewardData: '', fillStyle: '#54265e', textFillStyle: '#ffffff', text: 'SPIN AGAIN' },
-	{ rewardData: 'Reward description', fillStyle: '#ffffff', textFillStyle: '#54265e', text: 'PRIZE BOX' },
-	{ rewardData: '', fillStyle: '#54265e', textFillStyle: '#ffffff', text: 'NO LUCK' },
-	{ rewardData: 'Reward description', fillStyle: '#ffffff', textFillStyle: '#54265e', text: 'PRIZE BOX' },
+	{ rewardData: 'You have won 10%', fillStyle: '#54265e', textFillStyle: '#ffffff', text: '10%' },
+	{ rewardData: 'You have won 15%', fillStyle: '#ffffff', textFillStyle: '#54265e', text: '15%' },
+	{ rewardData: 'You have won 20%', fillStyle: '#54265e', textFillStyle: '#ffffff', text: '20%' },
+	{ rewardData: 'You have won 25%', fillStyle: '#ffffff', textFillStyle: '#54265e', text: '25%' },
+	{ rewardData: 'You have won 30%', fillStyle: '#54265e', textFillStyle: '#ffffff', text: '30%' },
+	{ rewardData: '', fillStyle: '#ffffff', textFillStyle: '#54265e', text: 'NOCHMALS' },
+	{ rewardData: 'You have won 10%', fillStyle: '#54265e', textFillStyle: '#ffffff', text: '10%' },
+	{ rewardData: 'You have won 15%', fillStyle: '#ffffff', textFillStyle: '#54265e', text: '15%' },
+	{ rewardData: 'You have won 20%', fillStyle: '#54265e', textFillStyle: '#ffffff', text: '20%' },
+	{ rewardData: 'You have won 25%', fillStyle: '#ffffff', textFillStyle: '#54265e', text: '25%' },
 ];
 
 // Create winwheel as per normal.
 let theWheel = new Winwheel({
 	'numSegments'  : prizes.length,
-	'textFontSize' : 22,
+	'outerRadius'   : 248,
+    'innerRadius'   : 70,
+	'textFontSize' : 20,
 	'textFontFamily' : 'Archivo',
 	'textFillStyle'  : 'white',
 	'textFontWeight' : 600,
@@ -76,12 +80,12 @@ function disableSpinButton() {
 function alertPrize(indicatedSegment) {
 	const selectedPrize = indicatedSegment.text;
 
-	if ( selectedPrize !== 'SPIN AGAIN' && selectedPrize !== 'NO LUCK' ) {
+	if ( selectedPrize !== 'NOCHMALS' && selectedPrize !== 'NO LUCK' ) {
 		const prizeInfoDiv = document.querySelector('.prize-info');
 		prizeInfoDiv.innerHTML = `You have won ${indicatedSegment.rewardData}!`;
 		animateSections();
 		disableSpinButton();
-	} else if ( selectedPrize === 'SPIN AGAIN' ) {
+	} else if ( selectedPrize === 'NOCHMALS' ) {
 		resetWheel();
 	} else if ( selectedPrize === 'NO LUCK') {
 		disableSpinButton();
@@ -91,7 +95,7 @@ function alertPrize(indicatedSegment) {
 function resetWheel() {
 	const selectedPrize = theWheel.getIndicatedSegment();
 
-	if (selectedPrize.text === 'Prize 2') {
+	if (selectedPrize.text === 'NOCHMALS') {
 		theWheel.stopAnimation(false);
 		theWheel.rotationAngle = 0;
 		theWheel.draw();

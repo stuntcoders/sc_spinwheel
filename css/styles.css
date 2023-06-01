@@ -208,6 +208,7 @@ section.slide-up {
 	font-size: 1.0625rem;
 	color: #fff;
 	line-height: 1.5;
+	margin-top: 1rem;
 }
 
 .content .section .start-game-action button, .submit-prize {

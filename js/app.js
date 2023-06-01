@@ -82,7 +82,7 @@ function alertPrize(indicatedSegment) {
 
 	if ( selectedPrize !== 'NOCHMALS' && selectedPrize !== 'NO LUCK' ) {
 		const prizeInfoDiv = document.querySelector('.prize-info');
-		prizeInfoDiv.innerHTML = `You have won ${indicatedSegment.rewardData}!`;
+		prizeInfoDiv.innerHTML = `${indicatedSegment.rewardData}`;
 		animateSections();
 		disableSpinButton();
 	} else if ( selectedPrize === 'NOCHMALS' ) {

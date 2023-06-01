@@ -25,16 +25,16 @@ function animateSections() {
 
 
 const prizes = [
-	{ rewardData: 'You have won 10%', fillStyle: '#54265e', textFillStyle: '#ffffff', text: '10%' },
-	{ rewardData: 'You have won 15%', fillStyle: '#ffffff', textFillStyle: '#54265e', text: '15%' },
-	{ rewardData: 'You have won 20%', fillStyle: '#54265e', textFillStyle: '#ffffff', text: '20%' },
-	{ rewardData: 'You have won 25%', fillStyle: '#ffffff', textFillStyle: '#54265e', text: '25%' },
-	{ rewardData: 'You have won 30%', fillStyle: '#54265e', textFillStyle: '#ffffff', text: '30%' },
+	{ rewardData: 'Dieser Gutschein ist nur für Teamwear-, Athlesure-, Running- & Padelprodukte gültig. Für Merchandisingprodukte kann der Gutschein nicht eingelöst werden.', fillStyle: '#54265e', textFillStyle: '#ffffff', text: '10%' },
+	{ rewardData: 'Dieser Gutschein ist nur für Teamwear-, Athlesure-, Running- & Padelprodukte gültig. Für Merchandisingprodukte kann der Gutschein nicht eingelöst werden.', fillStyle: '#ffffff', textFillStyle: '#54265e', text: '15%' },
+	{ rewardData: 'Dieser Gutschein ist nur für Teamwear-, Athlesure-, Running- & Padelprodukte gültig. Für Merchandisingprodukte kann der Gutschein nicht eingelöst werden.', fillStyle: '#54265e', textFillStyle: '#ffffff', text: '20%' },
+	{ rewardData: 'Dieser Gutschein ist nur für Teamwear-, Athlesure-, Running- & Padelprodukte gültig. Für Merchandisingprodukte kann der Gutschein nicht eingelöst werden.', fillStyle: '#ffffff', textFillStyle: '#54265e', text: '25%' },
+	{ rewardData: 'Dieser Gutschein ist nur für Teamwear-, Athlesure-, Running- & Padelprodukte gültig. Für Merchandisingprodukte kann der Gutschein nicht eingelöst werden.', fillStyle: '#54265e', textFillStyle: '#ffffff', text: '30%' },
 	{ rewardData: '', fillStyle: '#ffffff', textFillStyle: '#54265e', text: 'NOCHMALS' },
-	{ rewardData: 'You have won 10%', fillStyle: '#54265e', textFillStyle: '#ffffff', text: '10%' },
-	{ rewardData: 'You have won 15%', fillStyle: '#ffffff', textFillStyle: '#54265e', text: '15%' },
-	{ rewardData: 'You have won 20%', fillStyle: '#54265e', textFillStyle: '#ffffff', text: '20%' },
-	{ rewardData: 'You have won 25%', fillStyle: '#ffffff', textFillStyle: '#54265e', text: '25%' },
+	{ rewardData: 'Dieser Gutschein ist nur für Teamwear-, Athlesure-, Running- & Padelprodukte gültig. Für Merchandisingprodukte kann der Gutschein nicht eingelöst werden.', fillStyle: '#54265e', textFillStyle: '#ffffff', text: '10%' },
+	{ rewardData: 'Dieser Gutschein ist nur für Teamwear-, Athlesure-, Running- & Padelprodukte gültig. Für Merchandisingprodukte kann der Gutschein nicht eingelöst werden.', fillStyle: '#ffffff', textFillStyle: '#54265e', text: '15%' },
+	{ rewardData: 'Dieser Gutschein ist nur für Teamwear-, Athlesure-, Running- & Padelprodukte gültig. Für Merchandisingprodukte kann der Gutschein nicht eingelöst werden.', fillStyle: '#54265e', textFillStyle: '#ffffff', text: '20%' },
+	{ rewardData: 'Dieser Gutschein ist nur für Teamwear-, Athlesure-, Running- & Padelprodukte gültig. Für Merchandisingprodukte kann der Gutschein nicht eingelöst werden.', fillStyle: '#ffffff', textFillStyle: '#54265e', text: '25%' },
 ];
 
 // Create winwheel as per normal.

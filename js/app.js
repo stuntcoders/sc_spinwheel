@@ -2,11 +2,6 @@ const animateButton = document.querySelector('.next-section');
 const sections = document.querySelectorAll('.section');
 const actionButton = document.querySelector('.spin-the-wheel');
 
-if (localStorage.getItem('wheelDisabled')) {
-	actionButton.disabled = true;
-	actionButton.setAttribute('disabled', true);
-}
-
 animateButton.addEventListener('click', function() {
 	animateSections();
 });
@@ -79,12 +74,19 @@ function disableSpinButton() {
 
 function alertPrize(indicatedSegment) {
 	const selectedPrize = indicatedSegment.text;
+	const formDesc = document.querySelector('.form-desc');
 
 	if ( selectedPrize !== 'NOCHMALS' && selectedPrize !== 'NO LUCK' ) {
 		const prizeInfoDiv = document.querySelector('.prize-info');
 		prizeInfoDiv.innerHTML = `${indicatedSegment.rewardData}`;
+
+		if (localStorage.getItem('wheelDisabled')) {
+			formDesc.innerHTML = `Du hast bereits einen Rabatt von Xy% erhalten. Falls du kein E-Mail erhalten hast, dann solltest du deine Angaben nochmals ausfüllen.`;
+		} else {
+			localStorage.setItem('wheelDisabled', true);
+		}
+
 		animateSections();
-		disableSpinButton();
 	} else if ( selectedPrize === 'NOCHMALS' ) {
 		resetWheel();
 	} else if ( selectedPrize === 'NO LUCK') {

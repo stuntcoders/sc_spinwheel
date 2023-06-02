@@ -81,7 +81,7 @@ function alertPrize(indicatedSegment) {
 		prizeInfoDiv.innerHTML = `${indicatedSegment.rewardData}`;
 
 		if (localStorage.getItem('wheelDisabled')) {
-			formDesc.innerHTML = `Du hast bereits einen Rabatt von Xy% erhalten. Falls du kein E-Mail erhalten hast, dann solltest du deine Angaben nochmals ausfüllen.`;
+			formDesc.innerHTML = `Du hast bereits einen Rabatt von ${selectedPrize} erhalten. Falls du kein E-Mail erhalten hast, dann solltest du deine Angaben nochmals ausfüllen.`;
 		} else {
 			localStorage.setItem('wheelDisabled', true);
 		}

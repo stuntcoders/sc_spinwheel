@@ -13,9 +13,14 @@ function animateSections() {
 	activeSection.classList.add('fade-out');
 
 	setTimeout(function() {
+		activeSection.classList.add('display-none');
 		activeSection.classList.remove('active', 'fade-out');
-		nextSection.classList.add('active', 'slide-up');
+		nextSection.classList.add('display-block');
 	}, 500);
+
+	setTimeout(function() {
+		nextSection.classList.add('active', 'slide-up');
+	}, 550);
 }
 
 

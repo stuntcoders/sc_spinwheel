@@ -75,13 +75,22 @@ function disableSpinButton() {
 function alertPrize(indicatedSegment) {
 	const selectedPrize = indicatedSegment.text;
 	const formDesc = document.querySelector('.form-desc');
+	const rewardHiddenInput = document.getElementById('rewardDataVal');
 
 	if ( selectedPrize !== 'NOCHMALS' && selectedPrize !== 'NO LUCK' ) {
 		const prizeInfoDiv = document.querySelector('.prize-info');
 		prizeInfoDiv.innerHTML = `${indicatedSegment.rewardData}`;
 
+		if (!localStorage.getItem('rewardWon')) {
+			localStorage.setItem('rewardWon', selectedPrize);
+		}
+
+		const rewardWon = localStorage.getItem('rewardWon');
+
+		rewardHiddenInput.value = rewardWon;
+
 		if (localStorage.getItem('wheelDisabled')) {
-			formDesc.innerHTML = `Du hast bereits einen Rabatt von ${selectedPrize} erhalten. Falls du kein E-Mail erhalten hast, dann solltest du deine Angaben nochmals ausfüllen.`;
+			formDesc.innerHTML = `Du hast bereits einen Rabatt von ${rewardWon} erhalten. Falls du kein E-Mail erhalten hast, dann solltest du deine Angaben nochmals ausfüllen.`;
 		} else {
 			localStorage.setItem('wheelDisabled', true);
 		}
